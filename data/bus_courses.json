@@ -1,0 +1,142 @@
+[
+    {
+        "title": "BUS 001",
+        "description": "Foundations of Business",
+        "credits": 1,
+        "designation": "BUS",
+        "completed": false,
+        "used": false,
+        "grade": "NA",
+        "level": 0
+      },
+      {
+        "title": "ECO 001",
+        "description": "Principles of Economics",
+        "credits": 4,
+        "designation": "BUS",
+        "completed": false,
+        "used": false,
+        "grade": "NA",
+        "level": 0
+      },
+      {
+        "title": "ACCT 151",
+        "description": "Introduction to Financial Accounting",
+        "credits": 3,
+        "designation": "BUS",
+        "completed": false,
+        "used": false,
+        "grade": "NA",
+        "level": 1
+      },
+      {
+        "title": "ACCT 152",
+        "description": "Introduction to Managerial Accounting",
+        "credits": 3,
+        "designation": "BUS",
+        "completed": false,
+        "used": false,
+        "grade": "NA",
+        "level": 2
+      },
+      {
+        "title": "ECO 146", 
+        "description": "Intermediate Macroeconomic Analysis",
+        "credits": 3,
+        "designation": "BUS",
+        "completed": false,
+        "used": false,
+        "grade": "NA",
+        "level": 1
+      },
+      {
+        "title": "FIN 125", 
+        "description": "Introduction to Finance",
+        "credits": 3,
+        "designation": "BUS",
+        "completed": false,
+        "used": false,
+        "grade": "NA",
+        "level": 1
+      },
+      {
+        "title": "LAW 201", 
+        "description": "Legal Environment of Business",
+        "credits": 3,
+        "designation": "BUS",
+        "completed": false,
+        "used": false,
+        "grade": "NA",
+        "level": 1
+      },
+      {
+        "title": "SCM 186", 
+        "description": "Supply Chain Operations Management",
+        "credits": 3,
+        "designation": "BUS",
+        "completed": false,
+        "used": false,
+        "grade": "NA",
+        "level": 1
+      },
+      {
+        "title": "MGT 043", 
+        "description": "Organization Behavior",
+        "credits": 3,
+        "designation": "BUS",
+        "completed": false,
+        "used": false,
+        "grade": "NA",
+        "level": 0
+      },
+      {
+        "title": "MGT 301", 
+        "description": "Strategic Management in a Global Environment",
+        "credits": 3,
+        "designation": "BUS",
+        "completed": false,
+        "used": false,
+        "grade": "NA",
+        "level": 3
+      },
+      {
+        "title": "MKT 111", 
+        "description": "Principles of Marketing",
+        "credits": 3,
+        "designation": "BUS",
+        "completed": false,
+        "used": false,
+        "grade": "NA",
+        "level": 1
+      },
+      {
+        "title": "ECO 045", 
+        "description": "Statistical Methods",
+        "credits": 3,
+        "designation": "MATH",
+        "completed": false,
+        "used": false,
+        "grade": "NA",
+        "level": 0
+      },
+      {
+        "title": "BUS 003", 
+        "description": "Business Communication I",
+        "credits": 1.5,
+        "designation": "BUS",
+        "completed": false,
+        "used": false,
+        "grade": "NA",
+        "level": 0
+      },
+      {
+        "title": "BUS 203", 
+        "description": "Business Communication II",
+        "credits": 1.5,
+        "designation": "BUS",
+        "completed": false,
+        "used": false,
+        "grade": "NA",
+        "level": 3
+      }
+]

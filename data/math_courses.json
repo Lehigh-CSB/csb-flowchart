@@ -1,0 +1,32 @@
+[
+    {
+        "title": "MATH 021",
+        "description": "Calculus I",
+        "credits": 4,
+        "designation": "MATH",
+        "completed": false,
+        "used": false,
+        "grade": "NA",
+        "level": 0
+      },
+      {
+        "title": "MATH 022", 
+        "description": "Calculus II",
+        "credits": 3,
+        "designation": "MATH",
+        "completed": false,
+        "used": false,
+        "grade": "NA",
+        "level": 1
+      },
+      {
+        "title": "MATH 205", 
+        "description": "Linear Methods",
+        "credits": 3,
+        "designation": "MATH",
+        "completed": false,
+        "used": false,
+        "grade": "NA",
+        "level": 2
+      }
+]

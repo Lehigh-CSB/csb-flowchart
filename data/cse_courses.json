@@ -1,0 +1,142 @@
+[
+    {
+      "title": "CSE 007",
+      "description": "Introduction to Programming",
+      "credits": 4,
+      "designation": "CS",
+      "completed": false,
+      "used": false,
+      "grade": "NA",
+      "level": 0
+    },
+    {
+      "title": "CSE 017",
+      "description": "Programming and Data Structures",
+      "credits": 3,
+      "designation": "CS",
+      "completed": false,
+      "used": false,
+      "grade": "NA",
+      "level": 1
+    },
+    {
+      "title": "CSE 109",
+      "description": "Systems Software",
+      "credits": 4,
+      "designation": "CS",
+      "completed": false,
+      "used": false,
+      "grade": "NA",
+      "level": 2
+    },
+    {
+      "title": "CSE 140",
+      "description": "Foundations of Discrete Structures and Algorithms",
+      "credits": 3,
+      "designation": "CS",
+      "completed": false,
+      "used": false,
+      "grade": "NA",
+      "level": 2
+    },
+    {
+      "title": "CSE 202",
+      "description": "Computer Organization and Architecture",
+      "credits": 3,
+      "designation": "CS",
+      "completed": false,
+      "used": false,
+      "grade": "NA",
+      "level": 3
+    },
+    {
+      "title": "CSE 216",
+      "description": "Software Engineering",
+      "credits": 3,
+      "designation": "CS",
+      "completed": false,
+      "used": false,
+      "grade": "NA",
+      "level": 2
+    },
+    {
+      "title": "CSE 252",
+      "description": "Computers, Society, and the Internet",
+      "credits": 3,
+      "designation": "CS",
+      "completed": false,
+      "used": false,
+      "grade": "NA",
+      "level": 2
+    },
+    {
+      "title": "CSE 262",
+      "description": "Programming Languages",
+      "credits": 3,
+      "designation": "CS",
+      "completed": false,
+      "used": false,
+      "grade": "NA",
+      "level": 2
+    },
+    {
+      "title": "CSE 303",
+      "description": "Operating System Design",
+      "credits": 3,
+      "designation": "CS",
+      "completed": false,
+      "used": false,
+      "grade": "NA",
+      "level": 4
+    },
+    {
+      "title": "CSE 340",
+      "description": "Design and Analysis of Algorithms",
+      "credits": 3,
+      "designation": "CS",
+      "completed": false,
+      "used": false,
+      "grade": "NA",
+      "level": 3
+    },
+    {
+      "title": "CSE 341",
+      "description": "Database Systems, Algorithms, and Applications",
+      "credits": 3,
+      "designation": "CS",
+      "completed": false,
+      "used": false,
+      "grade": "NA",
+      "level": 2
+    },
+    {
+      "title": "CSB 311", 
+      "description": "Computer Applications in Business",
+      "credits": 3,
+      "designation": "CSB",
+      "completed": false,
+      "used": false,
+      "grade": "NA",
+      "level": 3
+    },
+    {
+      "title": "CSB 312", 
+      "description": "Design of Integrated Business Applications I",
+      "credits": 3,
+      "designation": "CSB",
+      "completed": false,
+      "used": false,
+      "grade": "NA",
+      "level": 3
+    },
+    {
+      "title": "CSB 313", 
+      "description": "Design of Integrated Business Applications II",
+      "credits": 3,
+      "designation": "CSB",
+      "completed": false,
+      "used": false,
+      "grade": "NA",
+      "level": 3
+    }
+]

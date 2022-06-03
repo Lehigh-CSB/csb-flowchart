@@ -70,13 +70,27 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  max-width: 800px;
+  grid-row: 1;
+}
+
+.layoutflow {
+  width: 1500px;
+  height: 400px;
+}
+
+.layoutflow .controls {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  z-index: 10;
 }
 
 .card {
-  margin: 0.5rem;
-  padding: 0.5rem;
-  text-align: left;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  text-align: center;
   color: inherit;
   text-decoration: none;
   border: 1px solid #eaeaea;
@@ -100,7 +114,7 @@
 .card p {
   margin: 0;
   font-size: 1.25rem;
-  line-height: 1.5;
+  line-height: 1.0;
 }
 
 .logo {

@@ -160,6 +160,7 @@ const LayoutFlow = () => {
         panOnScroll={false}
         fitView
         deleteKeyCode={null}
+        nodesConnectable={false}
         onNodeClick={onNodeClick}
       />
       }
@@ -178,8 +179,17 @@ function Home(props) {
       </Head>
 
       <main className={styles.main}>
-        <h3 styles={styles.title}>CSB Flowchart</h3>
-        <LayoutFlow></LayoutFlow>
+        {/* <h3 styles={styles.title}>CSB Flowchart</h3> */}
+        <div className={styles.mainContainer}>
+          <LayoutFlow></LayoutFlow>
+          <div className={styles.coursesInfo}>
+            <h3 styles={styles.title}>CSB Flowchart</h3>
+            <p>
+              This is a flowchart of the courses needed to complete Computer Science & Business
+              degree at Lehigh University.
+            </p>
+          </div>
+        </div>
       </main>
     </div>
   )

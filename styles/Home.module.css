@@ -2,6 +2,23 @@
   padding: 0 2rem;
 }
 
+.mainContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.layoutflow {
+  flex: 0 0 80%;
+  width: 1500px;
+  height: 800px;
+}
+
+.coursesInfo{
+  flex: 0 0 20%;;
+  padding: 1rem;
+  background-color: aliceblue;
+}
+
 .main {
   flex: 1;
   display: flex;
@@ -69,11 +86,6 @@
   justify-content: center;
   flex-wrap: wrap;
   grid-row: 1;
-}
-
-.layoutflow {
-  width: 1500px;
-  height: 800px;
 }
 
 .layoutflow .controls {

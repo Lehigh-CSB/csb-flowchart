@@ -157,7 +157,7 @@ const LayoutFlow = () => {
         zoomOnScroll={false}
         zoomOnPinch={false}
         zoomOnDoubleClick={false}
-        panOnDrag={false}
+        panOnDrag={true}
         panOnScroll={false}
         fitView
         deleteKeyCode={null}

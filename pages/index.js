@@ -6,7 +6,6 @@ import ReactFlow, { addEdge, ConnectionLineType, useNodesState, useEdgesState } 
 import dagre from 'dagre';
 import { initialNodes, initialEdges } from '../data/courses.js';
 
-
 const dagreGraph = new dagre.graphlib.Graph();
 dagreGraph.setDefaultEdgeLabel(() => ({}));
 
@@ -50,7 +49,7 @@ const { nodes: layoutedNodes, edges: layoutedEdges } = getLayoutedElements(
   initialEdges
 );
 
-const LayoutFlow = () => {
+const LayoutFlow = ({panIsDraggable, isMobile}) => {
   const availableNodes = ['bus001', 'eco001', 'bus003', 'eco045', 'math021', 'cse007', 'engl001'];
   const [nodes, setNodes, onNodesChange] = useNodesState(layoutedNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(layoutedEdges);
@@ -142,9 +141,10 @@ const LayoutFlow = () => {
     [nodes, edges]
   );
 
+  const layoutFlowStyle = isMobile ? styles.layoutflowMobile : styles.layoutflowDesktop;
+
   return (
-    <div className={styles.layoutflow}>
-      {nodes && <ReactFlow
+     <>{nodes && <ReactFlow
         nodes={nodes}
         edges={edges}
         style={{height: 800, width: '100%'}}
@@ -156,7 +156,7 @@ const LayoutFlow = () => {
         zoomOnScroll={false}
         zoomOnPinch={false}
         zoomOnDoubleClick={false}
-        panOnDrag={true}
+        panOnDrag={panIsDraggable}
         panOnScroll={false}
         fitView
         deleteKeyCode={null}
@@ -164,7 +164,7 @@ const LayoutFlow = () => {
         onNodeClick={onNodeClick}
       />
       }
-    </div>
+    </>
   );
 };
 
@@ -206,16 +206,23 @@ function Home(props) {
       </Head>
 
       <main>
-        {/* <h3 styles={styles.title}>CSB Flowchart</h3> */}
         <div className={styles.mainContainer}>
-          <LayoutFlow></LayoutFlow>
-          {!isMobile ? (<div className={styles.coursesInfo}>
-            <h3 styles={styles.title}>CSB Flowchart</h3>
-            <p>
-              This is a flowchart of the courses needed to complete Computer Science & Business
-              degree at Lehigh University.
-            </p>
-          </div>) : null}
+          {!isMobile ? (
+            <><div className={styles.layoutflowDesktop}>
+              <LayoutFlow panIsDraggable={false} isMobile={isMobile}></LayoutFlow>
+            </div><div className={styles.coursesInfo}>
+                <h3 styles={styles.title}>CSB Flowchart</h3>
+                <p>
+                  This is a flowchart of the courses needed to complete Computer Science & Business
+                  degree at Lehigh University.
+                </p>
+              </div></>
+          ) : (
+            <div className={styles.layoutflowMobile}>
+              <h3 styles={styles.title}>CSB Flowchart</h3>
+              <LayoutFlow panIsDraggable={true} isMobile={isMobile}></LayoutFlow>
+            </div>
+          )}
         </div>
       </main>
     </div>

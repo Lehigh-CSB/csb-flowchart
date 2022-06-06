@@ -7,8 +7,16 @@
   flex-wrap: wrap;
 }
 
-.layoutflow {
+.layoutflowDesktop {
   flex: 0 0 80%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.layoutflowMobile {
   width: 100%;
   display: flex;
   flex-direction: column;

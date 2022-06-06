@@ -68,6 +68,8 @@ const LayoutFlow = () => {
 
   const onNodeClick = (node) => {
     let nodeId = node.target.textContent.toLowerCase().replace(/ /g,'');
+    
+    // for changing the color of the clicked node
     for (let i = 0; i < nodes.length; i++) {
       if (nodes[i].id === nodeId) {
         if (nodes[i].style.background != '#7ad7f0') {
@@ -96,9 +98,37 @@ const LayoutFlow = () => {
             boxShadow: '5px 5px 5px 0px rgba(0,0,0,.10)'
           }
         }
+        break;
       }
     }
+
+    checkPrerequisites(nodeId);
+
     onLayout();
+  }
+
+  const checkPrerequisites = (nodeId) => {
+    // for changing the color of prerequisites
+    for(let i = 0; i < edges.length; i++) {
+      if(edges[i].target === nodeId) {
+        let prereqNodeId = edges[i].source;
+        for(let i = 0; i < nodes.length; i++) {
+          if(nodes[i].id === prereqNodeId) {
+            if (nodes[i].style.background != '#7ad7f0') {
+              nodes[i].style = {
+                background: '#7ad7f0',
+                width: 60,
+                color: '#000',
+                fontsize: '20px',
+                fontFamily: 'Helvetica',
+                boxShadow: '5px 5px 5px 0px rgba(0,0,0,.10)'
+              }
+            }
+            checkPrerequisites(prereqNodeId);
+          }
+        }
+      }
+    }
   }
   
   const onLayout = useCallback(

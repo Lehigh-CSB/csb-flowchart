@@ -67,6 +67,11 @@ const LayoutFlow = () => {
   const onLoad = (reactFlowInstance) => {
     reactFlowInstance.fitView();
   }
+
+  const onNodeClick = (node) => {
+    let nodeId = node.target.textContent.toLowerCase().replace(/ /g,'');
+    console.log(nodeId);
+  }
   
   const onLayout = useCallback(
     (direction) => {
@@ -99,6 +104,8 @@ const LayoutFlow = () => {
         panOnDrag={false}
         panOnScroll={false}
         fitView
+        deleteKeyCode={null}
+        onNodeClick={onNodeClick}
       />
       }
     </div>

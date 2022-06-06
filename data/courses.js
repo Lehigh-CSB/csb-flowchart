@@ -97,7 +97,7 @@ export const initialNodes = [
     style: styleUnselected,
   },
   {
-    id: 'eco119-146',
+    id: 'eco119/146',
     data: {label: 'ECO 119/146'},
     position,
     style: styleUnselected,
@@ -167,7 +167,7 @@ export const initialNodes = [
     style: styleUnselected,
   },
   {
-    id: 'cse241-341',
+    id: 'cse241/341',
     data: {label: 'CSE 241/341'},
     position,
     style: styleUnselected,
@@ -244,14 +244,14 @@ export const initialEdges = [
   {
     id: 'b3',
     source: 'eco001',
-    target: 'eco119-146',
+    target: 'eco119/146',
     type: edgeType,
     animated: true,
   },
   {
     id: 'b4',
     source: 'math021',
-    target: 'eco119-146',
+    target: 'eco119/146',
     type: edgeType,
     animated: true,
   },
@@ -348,7 +348,7 @@ export const initialEdges = [
   },
   {
     id: 'b18',
-    source: 'eco119-146',
+    source: 'eco119/146',
     target: 'mgt301',
     type: edgeType,
     animated: true,
@@ -454,7 +454,7 @@ export const initialEdges = [
   {
     id: 'c9',
     source: 'cse017',
-    target: 'cse241-341',
+    target: 'cse241/341',
     type: edgeType,
     animated: true,
   },
@@ -481,7 +481,7 @@ export const initialEdges = [
   },
   {
     id: 'cb2',
-    source: 'cse241-341',
+    source: 'cse241/341',
     target: 'csb311',
     type: edgeType,
     animated: true,

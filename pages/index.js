@@ -79,6 +79,7 @@ const LayoutFlow = () => {
             fontFamily: 'Helvetica',
             boxShadow: '5px 5px 5px 0px rgba(0,0,0,.10)'
           }
+          checkPrerequisites(nodeId);
         }
         else {
           let bckgColor = '#fff';
@@ -99,8 +100,6 @@ const LayoutFlow = () => {
         break;
       }
     }
-
-    checkPrerequisites(nodeId);
 
     onLayout();
   }

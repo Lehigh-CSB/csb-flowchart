@@ -2,11 +2,9 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import React, { useEffect, useState, useCallback } from 'react';
-import CourseCard from '../components/CourseCard';
 import ReactFlow, { addEdge, ConnectionLineType, useNodesState, useEdgesState } from 'react-flow-renderer';
 import dagre from 'dagre';
 import { initialNodes, initialEdges } from '../data/courses.js';
-import {styleCompleted, styleUnselected} from '../data/courses.js';
 
 
 const dagreGraph = new dagre.graphlib.Graph();

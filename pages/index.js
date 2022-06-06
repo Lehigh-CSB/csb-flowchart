@@ -53,6 +53,7 @@ const { nodes: layoutedNodes, edges: layoutedEdges } = getLayoutedElements(
 );
 
 const LayoutFlow = () => {
+  const availableNodes = ['bus001', 'eco001', 'bus003', 'eco045', 'math021', 'cse007', 'engl001'];
   const [nodes, setNodes, onNodesChange] = useNodesState(layoutedNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(layoutedEdges);
 
@@ -67,24 +68,29 @@ const LayoutFlow = () => {
 
   const onNodeClick = (node) => {
     let nodeId = node.target.textContent.toLowerCase().replace(/ /g,'');
-    console.log(nodeId);
     for (let i = 0; i < nodes.length; i++) {
       if (nodes[i].id === nodeId) {
-        if (nodes[i].style.background === '#454052') {
+        if (nodes[i].style.background != '#7ad7f0') {
           nodes[i].style = {
-            background: '#fff',
+            background: '#7ad7f0',
             width: 60,
-            color: '#454052',
+            color: '#000',
             fontsize: '20px',
             fontFamily: 'Helvetica',
             boxShadow: '5px 5px 5px 0px rgba(0,0,0,.10)'
           }
         }
         else {
+          let bckgColor = '#fff';
+          let txtColor = '#000';
+          if(availableNodes.includes(nodeId)) {
+            bckgColor = '#16558f';
+            txtColor = '#fff';
+          }
           nodes[i].style = {
-            background: '#454052',
+            background: bckgColor,
             width: 60,
-            color: '#fff',
+            color: txtColor,
             fontsize: '20px',
             fontFamily: 'Helvetica',
             boxShadow: '5px 5px 5px 0px rgba(0,0,0,.10)'

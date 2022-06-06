@@ -2,7 +2,17 @@ const position = { x: 0, y: 0 };
 const edgeType = 'default';
 
 const styleCompleted = {
-  background: '#454052',
+  // background: '#454052',
+  background: '#7ad7f0',
+  width: 60,
+  color: '#000',
+  fontsize: '20px',
+  fontFamily: 'Helvetica',
+  boxShadow: '5px 5px 5px 0px rgba(0,0,0,.10)'
+}
+
+const styleAvailable = {
+  background: '#16558f',
   width: 60,
   color: '#fff',
   fontsize: '20px',
@@ -23,14 +33,14 @@ export const initialNodes = [
     type: 'input',
     data: { label: 'BUS 001' },
     position,
-    style: styleCompleted,
+    style: styleAvailable,
   },
   {
     id: 'eco001',
     type: 'input',
     data: {label: 'ECO 001'},
     position,
-    style: styleCompleted,
+    style: styleAvailable,
   },
   {
     id: 'mkt111',
@@ -62,7 +72,7 @@ export const initialNodes = [
     type: 'input',
     data: {label: 'BUS 003'},
     position,
-    style: styleCompleted,
+    style: styleAvailable,
   },
   {
     id: 'bus203',
@@ -82,7 +92,7 @@ export const initialNodes = [
     type: 'input',
     data: {label: 'ECO 045'},
     position,
-    style: styleCompleted,
+    style: styleAvailable,
   },
   {
     id: 'fin125',
@@ -114,7 +124,7 @@ export const initialNodes = [
     type: 'input',
     data: { label: 'MATH 021' },
     position,
-    style: styleCompleted,
+    style: styleAvailable,
   },
   {
     id: 'math022',
@@ -134,7 +144,7 @@ export const initialNodes = [
     type: 'input',
     data: {label: 'CSE 007'},
     position,
-    style: styleCompleted,
+    style: styleAvailable,
   },
   {
     id: 'cse017',
@@ -222,7 +232,7 @@ export const initialNodes = [
     type: 'input',
     data: { label: 'ENGL 001' },
     position,
-    style: styleCompleted,
+    style: styleAvailable,
   }
 ];
 

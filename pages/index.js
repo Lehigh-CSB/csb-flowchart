@@ -168,8 +168,35 @@ const LayoutFlow = () => {
   );
 };
 
+const useMediaQuery = (width) => {
+  const [targetReached, setTargetReached] = useState(false);
+
+  const updateTarget = useCallback((e) => {
+    if (e.matches) {
+      setTargetReached(true);
+    } else {
+      setTargetReached(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    const media = window.matchMedia(`(max-width: ${width}px)`);
+    media.addListener(updateTarget);
+
+    // Check on mount (callback is not called until a change occurs)
+    if (media.matches) {
+      setTargetReached(true);
+    }
+
+    return () => media.removeListener(updateTarget);
+  }, []);
+
+  return targetReached;
+};
 
 function Home(props) {
+  const isMobile = useMediaQuery(600);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -178,17 +205,17 @@ function Home(props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
+      <main>
         {/* <h3 styles={styles.title}>CSB Flowchart</h3> */}
         <div className={styles.mainContainer}>
           <LayoutFlow></LayoutFlow>
-          <div className={styles.coursesInfo}>
+          {!isMobile ? (<div className={styles.coursesInfo}>
             <h3 styles={styles.title}>CSB Flowchart</h3>
             <p>
               This is a flowchart of the courses needed to complete Computer Science & Business
               degree at Lehigh University.
             </p>
-          </div>
+          </div>) : null}
         </div>
       </main>
     </div>

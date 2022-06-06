@@ -3,7 +3,7 @@ const edgeType = 'default';
 
 const styleCompleted = {
   background: '#454052',
-  width: 40,
+  width: 60,
   color: '#fff',
   fontsize: '20px',
   fontFamily: 'Helvetica',
@@ -11,7 +11,7 @@ const styleCompleted = {
 }
 
 const styleUnselected = {
-  width: 40,
+  width: 60,
   fontsize: '20px',
   fontFamily: 'Helvetica',
   boxShadow: '5px 5px 5px 0px rgba(0,0,0,.10)'
@@ -105,7 +105,7 @@ export const initialNodes = [
   {
     id: 'mgt301',
     type: 'output',
-    data: {label: 'MGT301'},
+    data: {label: 'MGT 301'},
     position,
     style: styleUnselected,
   },

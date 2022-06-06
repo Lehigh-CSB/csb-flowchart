@@ -3,14 +3,11 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import React, { useEffect, useState, useCallback } from 'react';
 import CourseCard from '../components/CourseCard';
-import cseCourseList from '../data/cse_courses.json';
-import busCourseList from '../data/bus_courses.json';
-import mathCourseList from '../data/math_courses.json';
-
 import ReactFlow, { addEdge, ConnectionLineType, useNodesState, useEdgesState } from 'react-flow-renderer';
 import dagre from 'dagre';
-
 import { initialNodes, initialEdges } from '../data/courses.js';
+import {styleCompleted, styleUnselected} from '../data/courses.js';
+
 
 const dagreGraph = new dagre.graphlib.Graph();
 dagreGraph.setDefaultEdgeLabel(() => ({}));
@@ -71,6 +68,31 @@ const LayoutFlow = () => {
   const onNodeClick = (node) => {
     let nodeId = node.target.textContent.toLowerCase().replace(/ /g,'');
     console.log(nodeId);
+    for (let i = 0; i < nodes.length; i++) {
+      if (nodes[i].id === nodeId) {
+        if (nodes[i].style.background === '#454052') {
+          nodes[i].style = {
+            background: '#fff',
+            width: 60,
+            color: '#454052',
+            fontsize: '20px',
+            fontFamily: 'Helvetica',
+            boxShadow: '5px 5px 5px 0px rgba(0,0,0,.10)'
+          }
+        }
+        else {
+          nodes[i].style = {
+            background: '#454052',
+            width: 60,
+            color: '#fff',
+            fontsize: '20px',
+            fontFamily: 'Helvetica',
+            boxShadow: '5px 5px 5px 0px rgba(0,0,0,.10)'
+          }
+        }
+      }
+    }
+    onLayout();
   }
   
   const onLayout = useCallback(

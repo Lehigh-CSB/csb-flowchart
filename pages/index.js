@@ -5,6 +5,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import ReactFlow, { addEdge, ConnectionLineType, useNodesState, useEdgesState, useReactFlow } from 'react-flow-renderer';
 import dagre from 'dagre';
 import { initialNodes, initialEdges } from '../data/courses.js';
+import CourseCard from '../components/CourseCard';
 
 const dagreGraph = new dagre.graphlib.Graph();
 dagreGraph.setDefaultEdgeLabel(() => ({}));
@@ -49,7 +50,7 @@ const { nodes: layoutedNodes, edges: layoutedEdges } = getLayoutedElements(
   initialEdges
 );
 
-const LayoutFlow = ({panIsDraggable, isMobile}) => {
+const LayoutFlow = ({panIsDraggable, isMobile, zoom}) => {
   const availableNodes = ['bus001', 'eco001', 'bus003', 'eco045', 'math021', 'cse007', 'engl001'];
   const [nodes, setNodes, onNodesChange] = useNodesState(layoutedNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(layoutedEdges);
@@ -165,6 +166,7 @@ const LayoutFlow = ({panIsDraggable, isMobile}) => {
         panOnDrag={panIsDraggable}
         panOnScroll={false}
         fitView
+        defaultZoom={zoom}
         deleteKeyCode={null}
         nodesConnectable={false}
         onNodeClick={onNodeClick}
@@ -249,18 +251,24 @@ function Home() {
         <div className={styles.mainContainer}>
           {!isMobile ? (
             <><div className={styles.layoutflowDesktop}>
-              <LayoutFlow panIsDraggable={false} isMobile={isMobile}></LayoutFlow>
+              <LayoutFlow panIsDraggable={false} isMobile={isMobile} zoom={1.0}></LayoutFlow>
             </div><div className={styles.coursesInfo}>
                 <h3 styles={styles.title}>CSB Flowchart</h3>
                 <p>
                   This is a flowchart of the courses needed to complete Computer Science & Business
                   degree at Lehigh University.
                 </p>
+                {initialNodes.map((node, index) => {
+                  return (
+                    <CourseCard key={index} name={node.data.label}>
+                    </CourseCard>
+                  );
+                })}
               </div></>
           ) : (
             <div className={styles.layoutflowMobile}>
               <h3 styles={styles.title}>CSB Flowchart</h3>
-              <LayoutFlow panIsDraggable={true} isMobile={isMobile}></LayoutFlow>
+              <LayoutFlow panIsDraggable={true} isMobile={isMobile} zoom={2.0}></LayoutFlow>
             </div>
           )}
         </div>

@@ -142,13 +142,13 @@ const LayoutFlow = ({panIsDraggable, isMobile, zoom}) => {
     [nodes, edges]
   );
 
-  useEffect(() => {
-    if(isMobile) {
-      getLayoutedElements(nodes, edges, 'TB', 40, 30);
-      onLayout();
-    }
-    getLayoutedElements(nodes, edges);
-  }, [useWindowSize().width, useWindowSize().height]);
+  // useEffect(() => {
+  //   if(isMobile) {
+  //     getLayoutedElements(nodes, edges, 'TB', 40, 30);
+  //     onLayout();
+  //   }
+  //   getLayoutedElements(nodes, edges);
+  // }, [useWindowSize().width, useWindowSize().height]);
 
   return (
      <>{nodes && <ReactFlow

@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import React, { useEffect, useState, useCallback } from 'react';
 import ReactFlow, { addEdge, ConnectionLineType, useNodesState, useEdgesState, useReactFlow } from 'react-flow-renderer';
@@ -142,14 +141,6 @@ const LayoutFlow = ({panIsDraggable, isMobile, height}) => {
     [nodes, edges]
   );
 
-  // useEffect(() => {
-  //   if(isMobile) {
-  //     getLayoutedElements(nodes, edges, 'TB', 40, 30);
-  //     onLayout();
-  //   }
-  //   getLayoutedElements(nodes, edges);
-  // }, [useWindowSize().width, useWindowSize().height]);
-
   return (
      <>{nodes && <ReactFlow
         nodes={nodes}
@@ -193,7 +184,6 @@ function useWindowSize() {
           width: window.innerWidth,
           height: window.innerHeight,
         });
-        // console.log(window.innerHeight, window.innerWidth)
       }
     
       // Add event listener
@@ -237,6 +227,10 @@ const useMediaQuery = (width) => {
 
 function Home() {
   const isMobile = useMediaQuery(600);
+  const nodes = initialNodes;
+  nodes.sort(function(a, b) {
+    return a.data.label === b.data.label ? 0 : a.data.label < b.data.label ? -1 : 1;
+  });
 
   return (
     <div className={styles.container}>
@@ -257,7 +251,7 @@ function Home() {
                   This is a flowchart of the courses needed to complete Computer Science & Business
                   degree at Lehigh University.
                 </p>
-                {initialNodes.map((node, index) => {
+                {nodes.map((node, index) => {
                   return (
                     <CourseCard key={index} name={node.data.label}>
                     </CourseCard>

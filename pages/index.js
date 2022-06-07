@@ -50,7 +50,7 @@ const { nodes: layoutedNodes, edges: layoutedEdges } = getLayoutedElements(
   initialEdges
 );
 
-const LayoutFlow = ({panIsDraggable, isMobile, zoom}) => {
+const LayoutFlow = ({panIsDraggable, isMobile, height}) => {
   const availableNodes = ['bus001', 'eco001', 'bus003', 'eco045', 'math021', 'cse007', 'engl001'];
   const [nodes, setNodes, onNodesChange] = useNodesState(layoutedNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(layoutedEdges);
@@ -154,7 +154,7 @@ const LayoutFlow = ({panIsDraggable, isMobile, zoom}) => {
      <>{nodes && <ReactFlow
         nodes={nodes}
         edges={edges}
-        style={{height: useWindowSize().height, width: '100%'}}
+        style={{height: height, width: '100%'}}
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
@@ -166,7 +166,6 @@ const LayoutFlow = ({panIsDraggable, isMobile, zoom}) => {
         panOnDrag={panIsDraggable}
         panOnScroll={false}
         fitView
-        defaultZoom={zoom}
         deleteKeyCode={null}
         nodesConnectable={false}
         onNodeClick={onNodeClick}
@@ -194,7 +193,7 @@ function useWindowSize() {
           width: window.innerWidth,
           height: window.innerHeight,
         });
-        console.log(window.innerHeight, window.innerWidth)
+        // console.log(window.innerHeight, window.innerWidth)
       }
     
       // Add event listener
@@ -251,7 +250,7 @@ function Home() {
         <div className={styles.mainContainer}>
           {!isMobile ? (
             <><div className={styles.layoutflowDesktop}>
-              <LayoutFlow panIsDraggable={false} isMobile={isMobile} zoom={1.0}></LayoutFlow>
+              <LayoutFlow panIsDraggable={false} isMobile={isMobile} height={'100%'}></LayoutFlow>
             </div><div className={styles.coursesInfo}>
                 <h3 styles={styles.title}>CSB Flowchart</h3>
                 <p>
@@ -268,7 +267,7 @@ function Home() {
           ) : (
             <div className={styles.layoutflowMobile}>
               <h3 styles={styles.title}>CSB Flowchart</h3>
-              <LayoutFlow panIsDraggable={true} isMobile={isMobile} zoom={2.0}></LayoutFlow>
+              <LayoutFlow panIsDraggable={true} isMobile={isMobile} height={'800px'}></LayoutFlow>
             </div>
           )}
         </div>

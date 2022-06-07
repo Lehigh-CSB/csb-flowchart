@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import React, { useEffect, useState, useCallback } from 'react';
-import ReactFlow, { addEdge, ConnectionLineType, useNodesState, useEdgesState } from 'react-flow-renderer';
+import ReactFlow, { addEdge, ConnectionLineType, useNodesState, useEdgesState, useReactFlow } from 'react-flow-renderer';
 import dagre from 'dagre';
 import { initialNodes, initialEdges } from '../data/courses.js';
 
@@ -141,13 +141,15 @@ const LayoutFlow = ({panIsDraggable, isMobile}) => {
     [nodes, edges]
   );
 
-  const layoutFlowStyle = isMobile ? styles.layoutflowMobile : styles.layoutflowDesktop;
+  useEffect(() => {
+    onLayout();
+  }, [useWindowSize().width]);
 
   return (
      <>{nodes && <ReactFlow
         nodes={nodes}
         edges={edges}
-        style={{height: 800, width: '100%'}}
+        style={{height: useWindowSize().height, width: useWindowSize().width/1.35}}
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
@@ -167,6 +169,40 @@ const LayoutFlow = ({panIsDraggable, isMobile}) => {
     </>
   );
 };
+
+function useWindowSize() {
+  // Initialize state with undefined width/height so server and client renders match
+  // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
+  const [windowSize, setWindowSize] = useState({
+    width: undefined,
+    height: 841,
+  });
+
+  useEffect(() => {
+    // only execute all the code below in client side
+    if (typeof window !== 'undefined') {
+      // Handler to call on window resize
+      function handleResize() {
+        // Set window width/height to state
+        setWindowSize({
+          width: window.innerWidth,
+          height: window.innerHeight,
+        });
+        console.log(window.innerHeight, window.innerWidth)
+      }
+    
+      // Add event listener
+      window.addEventListener("resize", handleResize);
+     
+      // Call handler right away so state gets updated with initial window size
+      handleResize();
+    
+      // Remove event listener on cleanup
+      return () => window.removeEventListener("resize", handleResize);
+    }
+  }, []); // Empty array ensures that effect is only run on mount
+  return windowSize;
+}
 
 const useMediaQuery = (width) => {
   const [targetReached, setTargetReached] = useState(false);
@@ -194,7 +230,7 @@ const useMediaQuery = (width) => {
   return targetReached;
 };
 
-function Home(props) {
+function Home() {
   const isMobile = useMediaQuery(600);
 
   return (

@@ -148,4 +148,31 @@
     width: 100%;
     flex-direction: column;
   }
+
+  .layoutflowMobile {
+    flex-direction: column;
+  }
+
+  .layoutflowDesktop {
+    flex-direction: column;
+  }
+
+  .layoutflowMobile .mainContainer {
+    flex-direction: column;
+  }
+
+  .layoutflowMobile .coursesInfo {
+    flex: 0 0 100%;
+    width: 100%;
+    padding: 1rem;
+    background-color: aliceblue;
+  }
+
+  .layoutflowMobile .main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }

@@ -12,9 +12,9 @@ dagreGraph.setDefaultEdgeLabel(() => ({}));
 const nodeWidth = 10;
 const nodeHeight = 60;
 
-const getLayoutedElements = (nodes, edges, direction = 'TB') => {
+const getLayoutedElements = (nodes, edges, direction = 'TB', nodesep=60, ranksep=40) => {
   const isHorizontal = direction === 'LR';
-  dagreGraph.setGraph({ rankdir: 'TB', nodesep: 60, ranksep: 40, ranker: 'tight-tree'});
+  dagreGraph.setGraph({ rankdir: direction, nodesep: nodesep, ranksep: ranksep, ranker: 'tight-tree'});
 
   nodes.forEach((node) => {
     dagreGraph.setNode(node.id, { width: nodeWidth, height: nodeHeight });
@@ -142,14 +142,18 @@ const LayoutFlow = ({panIsDraggable, isMobile}) => {
   );
 
   useEffect(() => {
-    onLayout();
-  }, [useWindowSize().width]);
+    if(isMobile) {
+      getLayoutedElements(nodes, edges, 'TB', 40, 30);
+      onLayout();
+    }
+    getLayoutedElements(nodes, edges);
+  }, [useWindowSize().width, useWindowSize().height]);
 
   return (
      <>{nodes && <ReactFlow
         nodes={nodes}
         edges={edges}
-        style={{height: useWindowSize().height, width: useWindowSize().width/1.35}}
+        style={{height: useWindowSize().height, width: '100%'}}
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}

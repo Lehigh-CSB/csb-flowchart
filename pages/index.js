@@ -5,6 +5,8 @@ import ReactFlow, { addEdge, ConnectionLineType, useNodesState, useEdgesState, u
 import dagre from 'dagre';
 import { initialNodes, initialEdges } from '../data/courses.js';
 import CourseCard from '../components/CourseCard';
+import {edgeTypes} from '../data/courses.js';
+import { SmartStepEdge } from '@tisoap/react-flow-smart-edge'
 
 const dagreGraph = new dagre.graphlib.Graph();
 dagreGraph.setDefaultEdgeLabel(() => ({}));
@@ -55,7 +57,7 @@ const LayoutFlow = ({panIsDraggable, isMobile, height}) => {
   const [edges, setEdges, onEdgesChange] = useEdgesState(layoutedEdges);
 
   const onConnect = useCallback(
-    (params) => setEdges((eds) => addEdge({ ...params, type: ConnectionLineType.SmoothStep, animated: true }, eds)),
+    (params) => setEdges((eds) => addEdge({ ...params, type: SmartStepEdge, animated: true }, eds)),
     []
   );
 
@@ -145,11 +147,12 @@ const LayoutFlow = ({panIsDraggable, isMobile, height}) => {
      <>{nodes && <ReactFlow
         nodes={nodes}
         edges={edges}
+        edgeTypes={edgeTypes}
         style={{height: height, width: '100%'}}
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
-        connectionLineType={ConnectionLineType.SmoothStep}
+        connectionLineType={SmartStepEdge}
         onLoad={onLoad}
         zoomOnScroll={false}
         zoomOnPinch={false}

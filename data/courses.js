@@ -102,7 +102,7 @@ export const initialNodes = [
            title: 'Organizatonal Behavior',
            description: 'Managers are needed to make organizations run effectively. Management is the art and science of helping individuals achieve goals together, often in organizations. This course provides a broad overview of the principles of effective, ethical management at the individual, interpersonal, and group levels of analysis. Emphasis is on conceptual and applied organizational behavior topics such as: individual differences; decision making; perception and judgment; motivation; leadership; delivering effective feedback and performance appraisal; managing diversity; power, politics and influence; and organizational culture.'},
     position,
-    style: styleUnselected,
+    style: styleAvailable,
   },
   {
     id: 'law201',

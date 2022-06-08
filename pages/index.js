@@ -81,6 +81,7 @@ const LayoutFlow = ({panIsDraggable, isMobile, height}) => {
             boxShadow: '5px 5px 5px 0px rgba(0,0,0,.10)'
           }
           checkPrerequisites(nodeId);
+          checkAvailable(nodeId);
         }
         else {
           let bckgColor = '#fff';
@@ -97,12 +98,70 @@ const LayoutFlow = ({panIsDraggable, isMobile, height}) => {
             fontFamily: 'Helvetica',
             boxShadow: '5px 5px 5px 0px rgba(0,0,0,.10)'
           }
+          checkAvailable(nodeId);
         }
         break;
       }
     }
 
     onLayout();
+  }
+
+  const checkAvailable = (nodeId) => {
+    for(let i = 0; i < edges.length; i++) {
+      if(edges[i].source === nodeId) {
+        let prereqNodeId = edges[i].target;
+        let targetCount = 0;
+        let targetMetCount = 0;
+        for(let j = 0; j < edges.length; j++) {
+          if(edges[j].target === prereqNodeId) {
+            targetCount++;
+            let nodeId = edges[j].source;
+            for(let k = 0; k < nodes.length; k++) {
+              if(nodes[k].id === nodeId){
+                if(nodes[k].style.background === '#7ad7f0') {
+                  targetMetCount++;
+                }
+                break;
+              }
+            }
+          }
+        }
+        if(targetCount === targetMetCount) {
+          for(let i = 0; i < nodes.length; i++) {
+            if(nodes[i].id === prereqNodeId) {
+              if (nodes[i].style.background != '#7ad7f0') {
+                nodes[i].style = {
+                  background: '#16558f',
+                  width: 60,
+                  color: '#fff',
+                  fontsize: '20px',
+                  fontFamily: 'Helvetica',
+                  boxShadow: '5px 5px 5px 0px rgba(0,0,0,.10)'
+                }
+              }
+            }
+          }
+        }
+        else{
+          for(let i = 0; i < nodes.length; i++) {
+            if(nodes[i].id === prereqNodeId) {
+              if (nodes[i].style.background != '#fff') {
+                nodes[i].style = {
+                  background: '#fff',
+                  width: 60,
+                  color: '#000',
+                  fontsize: '20px',
+                  fontFamily: 'Helvetica',
+                  boxShadow: '5px 5px 5px 0px rgba(0,0,0,.10)'
+                }
+              }
+            }
+          }
+        }
+        checkAvailable(prereqNodeId);
+      }
+    }
   }
 
   const checkPrerequisites = (nodeId) => {

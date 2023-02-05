@@ -1,14 +1,23 @@
-Linkedin Learning courses:
+## Learning Resources
 
-[HTML](https://www.linkedin.com/learning/paths/advance-your-skills-in-html?u=2222241)
+#### Linkedin Learning courses:
 
-[CSS](https://www.linkedin.com/learning/paths/learn-css?u=2222241)
+* [HTML](https://www.linkedin.com/learning/paths/advance-your-skills-in-html?u=2222241)
 
-[JavaScript](https://www.linkedin.com/learning/paths/become-a-javascript-developer?u=2222241)
+* [CSS](https://www.linkedin.com/learning/paths/learn-css?u=2222241)
 
-[React](https://www.linkedin.com/learning/paths/explore-react-js-development?u=2222241)
+* [JavaScript](https://www.linkedin.com/learning/paths/become-a-javascript-developer?u=2222241)
 
+* [React](https://www.linkedin.com/learning/paths/explore-react-js-development?u=2222241)
 
+#### MDN Web Docs:
+* [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
+
+* [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+
+* [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+
+---
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 

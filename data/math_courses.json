@@ -7,8 +7,10 @@
     "completed": false,
     "used": false,
     "grade": "NA",
-    "level": 0,
-    "prereqs": "N/A"
+    "level": 1,
+    "prereqs": "N/A",
+    "coreqs": "N/A",
+    "offered": "Both"
   },
   {
     "title": "MATH 022",
@@ -18,8 +20,10 @@
     "completed": false,
     "used": false,
     "grade": "NA",
-    "level": 1,
-    "prereqs": "MATH 021"
+    "level": 1.5,
+    "prereqs": "MATH 021",
+    "coreqs": "N/A",
+    "offered": "Both"
   },
   {
     "title": "MATH 205",
@@ -30,6 +34,8 @@
     "used": false,
     "grade": "NA",
     "level": 2,
-    "prereqs": "MATH 022"
+    "prereqs": "MATH 022",
+    "coreqs": "N/A",
+    "offered": "Both"
   }
 ]
